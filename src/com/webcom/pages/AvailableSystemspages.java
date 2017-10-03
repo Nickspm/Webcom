@@ -3,6 +3,7 @@ package com.webcom.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.webcom.generic.BasePage;
@@ -11,6 +12,7 @@ public class AvailableSystemspages extends BasePage {
 
 	public AvailableSystemspages(WebDriver driver) {
 		super(driver);
+		PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(id="lbLogOut") private WebElement logoutbtn;
@@ -19,7 +21,7 @@ public class AvailableSystemspages extends BasePage {
 	@FindBy(id="ctl00_cph1_gvAvailableSystems_ctl00_ctl02_ctl00_txtSearch") private WebElement systemidTxtBox;
 	@FindBy(id="ctl00_cph1_gvAvailableSystems_ctl00_ctl02_ctl00_btnSearch") private WebElement filterBtn;
 	@FindBy(xpath=".//*[.='Prannoy Test System']") private WebElement Pts;
-	//@FindBy(xpath=".//*[.='Prannoy Test System']") private WebElement Pts;
+	@FindBy(id="lbSessLogIn") private WebElement changePassword;
 
 	
 	
@@ -34,5 +36,8 @@ public class AvailableSystemspages extends BasePage {
 	
 	public void clickLogout(){
 		logoutbtn.click();
+	}
+	public void clickchangePassword(){
+		changePassword.click();
 	}
 }
