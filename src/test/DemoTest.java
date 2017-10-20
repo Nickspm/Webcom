@@ -10,7 +10,7 @@ public class DemoTest {
 public static void main(String[] args) throws InterruptedException {
 	System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 	WebDriver driver = new ChromeDriver();
-	driver.get("https://webcom5-qa.cxmlpg.com/");
+	driver.get("https://webcom5-qa.cxmlpg.com");
 	driver.findElement(By.id("Login1_UserName")).sendKeys("t_rajatd1@verifone.com");
 	driver.findElement(By.id("Login1_Password")).sendKeys("Oct@2017");
 	driver.findElement(By.id("Login1_btnSignIn")).click();
