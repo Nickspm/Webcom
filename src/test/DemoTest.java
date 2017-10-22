@@ -94,10 +94,36 @@ for(String s: A){
   List<Integer> clone = new ArrayList<Integer>(assending);
   Collections.sort(clone);
   if(assending.equals(clone)){
-	  System.out.println("Numbers are in assending order");
+	  
 	  Reporter.log("PASS : Numbers are in assending order", true);
   }else{
-	  System.out.println("Numbers are not in assending order");
+	  Reporter.log("Fail : Numbers are in assending order", false);
   }
+  
+  driver.findElement(By.xpath("//a[.='Capture Method']")).click();
+  Thread.sleep(10000);
+  List<WebElement> secondClick = driver.findElements(By.xpath("//td[@class='TxnResult'][6]"));
+  List<Integer> decending = new ArrayList<Integer>();
+  for(WebElement e : secondClick){
+	  Integer i =Integer.parseInt(e.getText());
+	  decending.add(i);
+  }
+//for (Integer a:assending ){
+//	System.out.println(a);
+//}
+  List<Integer> clone1 = new ArrayList<Integer>(decending);
+  Collections.sort(clone1);
+  Collections.reverse(clone1);
+//for (Integer a:decending ){
+//	System.out.println(a);
+//}
+  if(decending.equals(clone1)){
+	  
+	  Reporter.log("PASS : Numbers are in decending order", true);
+  }else{
+	  Reporter.log("FAIL : Numbers are not in decending order", false);
+  }
+  
+  driver.quit();
 }
 }
